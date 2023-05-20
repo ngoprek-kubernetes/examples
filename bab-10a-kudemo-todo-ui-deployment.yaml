@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kudemo-todo-ui-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kudemo-todo-ui
+  template:
+    metadata:
+      labels:
+        app: kudemo-todo-ui
+    spec:
+      containers:
+      - name: kudemo-todo-ui
+        image: ngoprek/kudemo-todo-ui
+        ports:
+        - containerPort: 8080
