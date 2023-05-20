@@ -7,13 +7,13 @@ spec:
   selector:
     matchLabels:
       component: api
-template:
-  metadata:
-    labels:
-      component: api
-  spec:
-    containers:
-    - name: api
-      image: ngoprek/kudemo-todo-api
-      ports:
-      - containerPort: 3000
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+      - name: api
+        image: ngoprek/kudemo-todo-api
+        ports:
+        - containerPort: 3000
