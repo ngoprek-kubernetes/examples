@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+      - name: api
+        image: kudemo/todo-api
+        ports:
+        - containerPort: 3000
+        envFrom:
+        - configMapRef:
+            name: api-config-map
