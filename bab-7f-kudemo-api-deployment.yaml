@@ -20,4 +20,4 @@ spec:
        # daftar environment variabel didefinisikan di sini
         env:
         - name: POSTGRES_ENABLED
-          value: “false”
+          value: "false"
