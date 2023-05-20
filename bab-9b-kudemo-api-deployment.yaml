@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kudemo-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+      - name: api
+        image: ngoprek/kudemo-todo-api
+        ports:
+        - containerPort: 8080
+        env:
+        - name: POSTGRES_ENABLED
+          value: "true"
+        - name: DB_HOST
+          value: postgres-cluster-ip-service
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_USER
+          value: postgres
+        - name: DB_DATABASE
+          value: kudemodb
+        - name: DB_PASSWORD
+          value: password-mudah
