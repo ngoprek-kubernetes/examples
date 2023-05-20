@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: kudemo-todo-ui-cluster-ip-service
+            port:
+              number: 80
+      - path: /api/?(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: api-load-balancer-service
+            port:
+              number: 8080
