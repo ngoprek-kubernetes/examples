@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-kudemo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: postgres
+  template:
+    metadata:
+      labels:
+        component: postgres
+    spec:
+      # konfigurasi volume untuk pod
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: database-persistent-volume-claim
+      containers:
+      - name: postgres
+        image: ngoprek/kudemo-todo-postgres
+        ports:
+          - containerPort: 5432
+        # konfigurasi volumE mounting untuk kontainer
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+          subPath: postgres
+        env:
+        - name: POSTGRES_PASSWORD
+          value: password-mudah
+        - name: POSTGRES_DB
+          value: kudemodb
