@@ -1,2 +1,2 @@
 # Examples
-Contoh-contoh snippet kode dan konfigurasi file Kubernetes dari buku "Kubernetes untuk Pemula" karya Giri Kuncoro, Aris Risdianto, dan Onno W. Purbo dari Penerbit Andi.
+Contoh-contoh snippet kode dan konfigurasi file Kubernetes dari buku "Kubernetes untuk Pemula" karya Giri Kuncoro, Aris Risdianto, dan Onno W. Purbo dari Penerbit Andi. Contoh ini menggunakan aplikasi demo yang didapat dari repositori [kudemo](https://github.com/ngoprek-kubernetes/kudemo) dengan image yang dipublish melalui docker registry [docker.io/ngoprek](https://hub.docker.com/u/ngoprek).
