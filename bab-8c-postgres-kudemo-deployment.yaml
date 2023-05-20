@@ -22,7 +22,7 @@ spec:
         image: ngoprek/kudemo-todo-postgres
         ports:
           - containerPort: 5432
-        # konfigurasi volumE mounting untuk kontainer
+        # konfigurasi volume mounting untuk kontainer
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres-deployment
+  name: postgres-kudemo-deployment
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
           claimName: database-persistent-volume-claim
       containers:
       - name: postgres
-        image: kudemo/todo-postgres
+        image: ngoprek/kudemo-todo-postgres
         ports:
         - containerPort: 5432
         volumeMounts:
@@ -34,4 +34,4 @@ spec:
                 name: postgres-secret
                 key: password
           - name: POSTGRES_DB
-            value: tododb
+            value: kudemodb

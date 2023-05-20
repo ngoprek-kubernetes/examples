@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: kudemo-api-deployment
 spec:
   replicas: 3
   selector:
@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: api
-        image: kudemo/todo-api
+        image: ngoprek/kudemo-todo-api
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         envFrom:
         - configMapRef:
-            name: api-config-map
+            name: kudemo-api-config

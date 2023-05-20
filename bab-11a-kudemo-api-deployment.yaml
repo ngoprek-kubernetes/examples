@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: kudemo-api-deployment
 spec:
   replicas: 3
   selector:
@@ -16,18 +16,18 @@ spec:
       - name: api
         image: ngoprek/kudemo-todo-api
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         env:
-        - name: DB_CONNECTION
-          value: pg
+        - name: POSTGRES_ENABLED
+          value: "true"
         - name: DB_HOST
           value: postgres-cluster-ip-service
         - name: DB_PORT
-          value: ‘5432’
+          value: "5432"
         - name: DB_USER
           value: postgres
         - name: DB_DATABASE
-          value: notesdb
+          value: kudemodb
         # password tidak ditulis secara langsung lagi,
         # tapi merujuk ke Secret postgres-secret.
         - name: DB_PASSWORD
