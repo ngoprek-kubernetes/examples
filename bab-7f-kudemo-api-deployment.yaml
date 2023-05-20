@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kudemo-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: api
+  template:
+    metadata:
+      labels:
+        component: api
+    spec:
+      containers:
+      - name: api
+        image: ngoprek/kudemo-todo-api
+        ports:
+        - containerPort: 3000
+       # daftar environment variabel didefinisikan di sini
+        env:
+        - name: POSTGRES_ENABLED
+          value: “false”
