@@ -24,7 +24,7 @@ spec:
         volumeMounts:
         - name: postgres-storage
           mountPath: /var/lib/postgresql/data
-            subPath: postgres
+          subPath: postgres
         env:
           # password tidak ditulis secara langsung lagi,
           # tapi merujuk ke Secret postgres-secret.
