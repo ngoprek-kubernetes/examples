@@ -16,4 +16,4 @@ spec:
       - name: api
         image: ngoprek/kudemo-todo-api
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
