@@ -16,7 +16,7 @@ spec:
       - name: api
         image: ngoprek/kudemo-todo-api
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
        # daftar environment variabel didefinisikan di sini
         env:
         - name: POSTGRES_ENABLED

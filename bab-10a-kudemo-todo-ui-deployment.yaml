@@ -16,4 +16,4 @@ spec:
       - name: kudemo-todo-ui
         image: ngoprek/kudemo-todo-ui
         ports:
-        - containerPort: 8080
+        - containerPort: 80
